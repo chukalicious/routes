@@ -1,23 +1,24 @@
 import React from "react";
-import Navbar from "./components/Navbar";
+import MainLayout from "./layouts/MainLayout";
+import Home from "./components/Home"
+import About from "./pages/About";
+import { Route, createBrowserRouter, createRoutesFromElements, RouterProvider } from "react-router-dom"
 
 const App = () => {
+
+  const router = createBrowserRouter(
+    createRoutesFromElements(
+      <Route path="/" element={<MainLayout />}>
+        <Route path="/" element={<Home />} />
+        <Route path="about" element={<About />} />
+        <Route path="*" element={<h1>404</h1>} />
+      </Route>)
+  );
   return (
     <>
-      <Navbar />
-      <div className="flex w-full">
-        <div className="card w-96 bg-base-100 shadow-xl mx-auto mt-8">
-          <div className="card-body items-center">
-            <h2 className="card-title mb-8">App.jsx</h2>
-            <p className="text-4xl">😊</p>
-            <div className="card-actions justify-center">
-              <button className="btn btn-primary rounded-full uppercase mt-4">
-                let's play!
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
+
+      <RouterProvider router={router} />
+
     </>
   );
 };

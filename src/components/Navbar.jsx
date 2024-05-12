@@ -5,13 +5,13 @@ const Navbar = () => {
     return (
         <div className="navbar bg-base-100">
             <div className="flex-1">
-                <Link to="/" className="btn btn-ghost text-xl">Vite + TailwindCSS + DaisyUI Template</Link>
+                <Link to="/" className="btn btn-ghost text-xl">Joiners</Link>
             </div>
             <div className="flex-none">
 
-                <Link to="/about">
+                <Link to="/register">
                     <button className="btn btn-square btn-ghost mr-2">
-                        About
+                        Register
                     </button>
                 </Link>
             </div>

@@ -1,8 +1,6 @@
 import React from 'react'
 
-
-
-const RegisterForm = ({ handleChange, handleSubmit }) => {
+const RegisterForm = ({ registration, handleChange, handleSubmit }) => {
 
 
     return (

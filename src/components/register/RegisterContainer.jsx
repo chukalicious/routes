@@ -37,7 +37,7 @@ const RegisterContainer = () => {
 
 
     return (
-        <RegisterForm port={port} handleChange={handleChange} handleSubmit={handleSubmit} />
+        <RegisterForm registration={registration} handleChange={handleChange} handleSubmit={handleSubmit} />
     )
 }
 

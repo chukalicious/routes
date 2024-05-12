@@ -14,6 +14,11 @@ const Navbar = () => {
                         Register
                     </button>
                 </Link>
+                <Link to="/dashboard">
+                    <button className="btn btn-square btn-ghost mr-2">
+                        Dashboard
+                    </button>
+                </Link>
             </div>
         </div>
 

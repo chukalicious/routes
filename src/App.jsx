@@ -3,6 +3,7 @@ import MainLayout from "./layouts/MainLayout";
 import Home from "./components/Home"
 import About from "./pages/About";
 import RegisterContainer from "./components/register";
+import DashboardWrapper from "./components/dashboard";
 import { Route, createBrowserRouter, createRoutesFromElements, RouterProvider } from "react-router-dom"
 
 const App = () => {
@@ -13,6 +14,7 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="about" element={<About />} />
         <Route path="register" element={<RegisterContainer />} />
+        <Route path="dashboard" element={<DashboardWrapper />} />
         <Route path="*" element={<h1>404</h1>} />
       </Route>)
   );

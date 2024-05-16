@@ -15,15 +15,6 @@ const RegisterContainer = () => {
         password: ''
     })
     console.log(registration)
-    const [regSuccess, setRegSuccess] = useState(false)
-
-    const checkSuccess = () => {
-        if (regSuccess) {
-            navigate('/dashboard')
-            console.log('navigate')
-
-        }
-    }
 
     const handleChange = (e) => {
         setRegistration({ ...registration, [e.target.name]: e.target.value })
@@ -34,7 +25,7 @@ const RegisterContainer = () => {
         axios.post(`http://localhost:${port}/api/users/register`, registration)
             .then(response => {
                 console.log(response)
-                setRegSuccess(true)
+                navigate('/dashboard')
 
             })
             .catch(error => {
@@ -45,7 +36,6 @@ const RegisterContainer = () => {
             email: '',
             password: ''
         })
-        checkSuccess()
     }
 
 

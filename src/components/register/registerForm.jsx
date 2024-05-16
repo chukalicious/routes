@@ -9,7 +9,7 @@ const RegisterForm = ({ registration, handleChange, handleSubmit }) => {
             <div className="hero-content flex-col lg:flex-row-reverse">
                 <div className="text-center lg:text-left">
                     <h1 className="text-5xl font-bold">Signup now!</h1>
-                    <p className="py-6">Sign up and we'll think of a reason why later!</p>
+                    <p className="py-6">Sign up now and we'll think of a reason why later!</p>
                 </div>
                 <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                     <form className="card-body" onSubmit={handleSubmit}>

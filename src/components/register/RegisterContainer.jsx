@@ -10,6 +10,7 @@ const RegisterContainer = () => {
     const port = 8080
     const navigate = useNavigate()
     const [registration, setRegistration] = useState({
+        name: '',
         email: '',
         password: ''
     })
@@ -40,17 +41,12 @@ const RegisterContainer = () => {
                 console.log(error)
             })
         setRegistration({
+            name: '',
             email: '',
             password: ''
         })
         checkSuccess()
-
-
-
-
     }
-
-
 
 
     return (

@@ -1,9 +1,9 @@
-const LoginForm = ({ login, handleChange, handleSubmit, loginError }) => {
+const LoginForm = ({ loginForm, handleChange, handleSubmit }) => {
   return (
     <>
-      {loginError ? (
+      {/* {loginError ? (
         <div className='alert alert-error'>Invalid email or password</div>
-      ) : null}
+      ) : null} */}
       <div className='hero min-h-screen bg-base-200'>
         <div className='hero-content flex-col lg:flex-row-reverse'>
           <div className='text-center lg:text-left'>
@@ -26,7 +26,7 @@ const LoginForm = ({ login, handleChange, handleSubmit, loginError }) => {
                 <input
                   type='email'
                   name='email'
-                  value={login.email}
+                  value={loginForm.email}
                   onChange={handleChange}
                   placeholder='email'
                   className='input input-bordered'
@@ -40,7 +40,7 @@ const LoginForm = ({ login, handleChange, handleSubmit, loginError }) => {
                 <input
                   type='password'
                   name='password'
-                  value={login.password}
+                  value={loginForm.password}
                   onChange={handleChange}
                   placeholder='password'
                   className='input input-bordered'

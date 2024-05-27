@@ -1,47 +1,58 @@
-
-import React, { useState } from 'react'
-import axios from 'axios'
-import { useNavigate } from 'react-router-dom'
-import RegisterForm from './registerForm'
-
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import RegisterForm from './registerForm';
+import { useSelector, useDispatch } from 'react-redux';
+import { register, reset } from '../../features/auth/authSlice';
 
 const RegisterContainer = () => {
+  const navigate = useNavigate();
+  const [registration, setRegistration] = useState({
+    name: '',
+    email: '',
+    password: '',
+  });
+  console.log(registration);
 
-    const port = 8080
-    const navigate = useNavigate()
-    const [registration, setRegistration] = useState({
-        name: '',
-        email: '',
-        password: ''
-    })
-    console.log(registration)
+  const { name, email, password } = registration;
 
-    const handleChange = (e) => {
-        setRegistration({ ...registration, [e.target.name]: e.target.value })
+  const dispatch = useDispatch();
+  const { user, isLoading, isError, isSuccess, message } = useSelector(
+    (state) => state.auth
+  );
+
+  useEffect(() => {
+    if (isError) {
+      console.log(message);
     }
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        axios.post(`http://localhost:${port}/api/users/register`, registration)
-            .then(response => {
-                console.log(response)
-                navigate('/dashboard')
-
-            })
-            .catch(error => {
-                console.log(error)
-            })
-        setRegistration({
-            name: '',
-            email: '',
-            password: ''
-        })
+    if (isSuccess) {
+      navigate('/login');
     }
 
+    dispatch(reset());
+  }, [isSuccess, user, isError, dispatch, message, navigate]);
 
-    return (
-        <RegisterForm registration={registration} handleChange={handleChange} handleSubmit={handleSubmit} />
-    )
-}
+  const handleChange = (e) => {
+    setRegistration({ ...registration, [e.target.name]: e.target.value });
+  };
 
-export default RegisterContainer
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const user = {
+      name,
+      email,
+      password,
+    };
+    dispatch(register(user));
+  };
+
+  return (
+    <RegisterForm
+      registration={registration}
+      handleChange={handleChange}
+      handleSubmit={handleSubmit}
+    />
+  );
+};
+
+export default RegisterContainer;

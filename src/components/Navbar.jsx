@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { FaArrowRightFromBracket } from 'react-icons/fa6';
 import { FaRegCircleUser } from 'react-icons/fa6';
 import { FaPeopleLine } from 'react-icons/fa6';
+import LogoutButton from '../components/Logout/LogoutButton';
 
 const Navbar = () => {
   return (
@@ -24,6 +25,8 @@ const Navbar = () => {
             <FaArrowRightFromBracket />
           </button>
         </Link>
+
+        <LogoutButton />
 
         <Link to='/register'>
           <button className='btn btn-square btn-ghost mr-2'>
